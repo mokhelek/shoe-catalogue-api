@@ -57,10 +57,13 @@ app.get("/api/shoes/brand/:brandName/size/:shoeSize", async (req, res) => {
 
 
 app.post("/api/shoes", async (req, res) => {
-    let insertQuery = ``
+    let insertQuery = `
+    INSERT INTO shoes_stock(shoe_name, brand, size, price, image_url, color, quantity)
+    VALUES ($1,$2,$3,$4,$5,$6,$7)
+    `
     try{
         console.log(req.body.size, req.body.price)
-        await db.any("SELECT * FROM shoes_stock")
+        await db.any(insertQuery,[req.body.shoe_name, req.body.brand, req.body.size, req.body.price, req.body.image_url, req.body.color, req.body.quantity])
         res.status(201).json({'message':'Shoes stock successfully updated'});
 
     }catch(error){

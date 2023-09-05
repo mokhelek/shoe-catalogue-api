@@ -25,7 +25,7 @@ content-type: application/json
     "brand": "Balenciaga",
     "size": "8",
     "price": "9500",
-    "image": "https://i.ebayimg.com/00/s/MTYwMFgxNjAw/z/MUQAAOSwQ1Fjfq8z/$_57.JPG?set_id=880000500F",
+    "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxNjAw/z/MUQAAOSwQ1Fjfq8z/$_57.JPG?set_id=880000500F",
     "color": "gray",
     "quantity": 14
 
