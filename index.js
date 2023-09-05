@@ -37,6 +37,14 @@ app.get("/api/shoes/brand/:brandName", async (req, res) => {
     }
 });
 
+app.get("/api/shoes/size/:shoeSize", async (req, res) => {
+    try{
+        let shoesListByBrand = await db.any("SELECT * FROM shoes_stock WHERE size = $1", req.params.shoeSize)
+        res.status(200).json(shoesListByBrand);
+    }catch(error){
+        console.log(error)
+    }
+});
 
 
 let PORT = process.env.PORT || 3000;
