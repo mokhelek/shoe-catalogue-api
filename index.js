@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 
 
-app.get("/", (req, res) => {
+app.get("/api/shoes", (req, res) => {
     res.send("Something");
 });
 
