@@ -1,14 +1,33 @@
 
+### 
 GET http://localhost:3000/api/shoes
 
 ###
 
-GET http://localhost:3000/api/shoes/brand/GH BASS
+GET http://localhost:3000/api/shoes/brand/Gucci
 
 ###
 
 GET http://localhost:3000/api/shoes/size/6
 
+###
+
+GET http://localhost:3000/api/shoes/brand/Gucci/size/7
 
 
+###
+
+POST http://localhost:3000/api/shoes
+content-type: application/json 
+
+{
+    "shoe_name": "Balenciaga Track Sneaker",
+    "brand": "Balenciaga",
+    "size": "8",
+    "price": "9500",
+    "image": "https://i.ebayimg.com/00/s/MTYwMFgxNjAw/z/MUQAAOSwQ1Fjfq8z/$_57.JPG?set_id=880000500F",
+    "color": "gray",
+    "quantity": 14
+
+}
 
