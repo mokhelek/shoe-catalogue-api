@@ -1,6 +1,9 @@
 
 GET http://localhost:3000/api/shoes
 
+###
+
+GET http://localhost:3000/api/shoes/brand/GH BASS
 
 
 
