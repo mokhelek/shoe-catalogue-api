@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import session from "express-session";
+import db from "./model/db.js";
 
 let app = express();
 
@@ -18,8 +19,13 @@ app.use(bodyParser.json());
 
 
 
-app.get("/api/shoes", (req, res) => {
-    res.send("Something");
+app.get("/api/shoes", async (req, res) => {
+    try{
+        let shoesList = await db.any("SELECT * FROM shoes_stock")
+        res.status(200).json(shoesList);
+    }catch(error){
+        console.log(error)
+    }
 });
 
 
