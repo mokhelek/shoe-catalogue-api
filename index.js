@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import session from "express-session";
+import cors from "cors"
 import db from "./model/db.js";
 
 let app = express();
@@ -15,6 +16,8 @@ app.use(
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
+
 
 app.get("/api/shoes", async (req, res) => {
     try {
