@@ -19,6 +19,44 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
+
+app.get("/",(req, res) => {
+    const routes = [
+        {
+            'Endpoint':'/api/shoes',
+            'method': 'GET',
+            'description': 'Returns a list of all shoes'
+        },
+        {
+            'Endpoint': '/api/shoes/brand/:brandName',
+            'method': 'GET',
+            'description': 'Return a list of shoes based on brand name'
+        },
+        {
+            'Endpoint': '/api/shoes/size/:shoeSize/',
+            'method': 'GET',
+            'description': 'Return a list of shoes based on brand name'
+        },
+        {
+            'Endpoint': '/api/shoes/brand/:brandName/size/:shoeSize',
+            'method': 'GET',
+            'description': 'Return a list of shoes based on brand name and shoe size'
+        },
+        {
+            'Endpoint': '/api/shoes',
+            'method': 'POST',
+            'description': 'Adds new shoes to the stock'
+        },
+        {
+            'Endpoint': '/api/shoes/sold/:id',
+            'method': 'POST',
+            'description': 'Updates stock level after shoe is sold'
+        }
+    ]
+
+    res.status(200).json(routes);
+});
+
 app.get("/api/shoes", async (req, res) => {
     try {
         let shoesList = await db.any("SELECT * FROM shoes_stock");
