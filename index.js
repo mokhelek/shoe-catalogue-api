@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import session from "express-session";
 import cors from "cors"
-import db from "./model/db.js";
+
 
 let app = express();
 
