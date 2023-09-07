@@ -17,6 +17,16 @@ export default function shoesService(db) {
         }
     }
 
+    async function getShoesByColor(req, res) {
+        try {
+            let shoesListByColor = await db.any("SELECT * FROM shoes_stock WHERE color = $1", req.params.shoeColor);
+            res.status(200).json(shoesListByColor);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     async function getShoesBySize(req, res) {
         try {
             let shoesListBySize = await db.any("SELECT * FROM shoes_stock WHERE size = $1", req.params.shoeSize);
@@ -66,6 +76,7 @@ export default function shoesService(db) {
         getAllShoes,
         getShoesByBrand,
         getShoesBySize,
+        getShoesByColor,
         getShoesBySizeBrand,
         addShoes,
         updateStock,

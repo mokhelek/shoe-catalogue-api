@@ -13,6 +13,8 @@ router.get("/brand/:brandName", shoeServiceInstance.getShoesByBrand);
 
 router.get("/size/:shoeSize",shoeServiceInstance.getShoesBySize );
 
+router.get("/color/:shoeColor",shoeServiceInstance.getShoesByColor );
+
 router.get("/brand/:brandName/size/:shoeSize", shoeServiceInstance.getShoesBySizeBrand );
 
 router.post("/", shoeServiceInstance.addShoes );
