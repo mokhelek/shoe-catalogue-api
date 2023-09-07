@@ -11,14 +11,7 @@ router.get("/", shoeServiceInstance.getAllShoes );
 
 router.get("/brand/:brandName", shoeServiceInstance.getShoesByBrand);
 
-router.get("/size/:shoeSize", async (req, res) => {
-    try {
-        let shoesListBySize = await db.any("SELECT * FROM shoes_stock WHERE size = $1", req.params.shoeSize);
-        res.status(200).json(shoesListBySize);
-    } catch (error) {
-        console.log(error);
-    }
-});
+router.get("/size/:shoeSize",shoeServiceInstance.getShoesBySize );
 
 router.get("/brand/:brandName/size/:shoeSize", async (req, res) => {
     try {
