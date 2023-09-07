@@ -7,6 +7,7 @@ GET http://localhost:3000/api/shoes
 GET http://localhost:3000/api/shoes/brand/Gucci
 
 ###
+
 GET http://localhost:3000/api/shoes/color/red
 
 ###
@@ -17,6 +18,9 @@ GET http://localhost:3000/api/shoes/size/6
 
 GET http://localhost:3000/api/shoes/brand/Gucci/size/7
 
+###
+
+GET http://localhost:3000/api/shoes/brand/Gucci/size/7/color/black
 
 ###
 
