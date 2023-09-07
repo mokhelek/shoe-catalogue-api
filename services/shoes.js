@@ -45,6 +45,15 @@ export default function shoesService(db) {
         }
     }
 
+    async function getShoesBySizeBrandColor(req, res) {
+        try {
+            let shoesListByBrandSizeColor = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND brand = $2 AND color = $3", [req.params.shoeSize, req.params.brandName, req.params.shoeColor]);
+            res.status(200).json(shoesListByBrandSizeColor);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     async function addShoes(req, res) {
         let insertQuery = `
             INSERT INTO shoes_stock(shoe_name, brand, size, price, image_url, color, quantity)
@@ -80,5 +89,6 @@ export default function shoesService(db) {
         getShoesBySizeBrand,
         addShoes,
         updateStock,
+        getShoesBySizeBrandColor
     };
 }
