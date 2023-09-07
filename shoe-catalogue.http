@@ -21,7 +21,7 @@ POST http://localhost:3000/api/shoes
 content-type: application/json 
 
 {
-    "shoe_name": "Balenciaga Track Sneaker",
+    "shoe_name": "Balenciaga Track Sneaker 2",
     "brand": "Balenciaga",
     "size": "8",
     "price": "9500",

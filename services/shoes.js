@@ -35,11 +35,39 @@ export default function shoesService(db) {
         }
     }
 
+    async function addShoes(req, res) {
+        let insertQuery = `
+            INSERT INTO shoes_stock(shoe_name, brand, size, price, image_url, color, quantity)
+            VALUES ($1,$2,$3,$4,$5,$6,$7)
+            `;
+        try {
+            await db.oneOrNone(insertQuery, [req.body.shoe_name, req.body.brand, req.body.size, req.body.price, req.body.image_url, req.body.color, req.body.quantity]);
+            res.status(201).json({ message: "Shoes stock successfully updated" });
+        } catch (error) {
+            console.log(error);
+            res.status(400).send("invalid input");
+        }
+    }
 
+    async function updateStock(req, res) {
+        let insertQuery = `
+            UPDATE shoes_stock
+            SET quantity = shoes_stock.quantity - 1 WHERE id = $1
+        `;
+        try {
+            await db.any(insertQuery, [req.params.id]);
+            res.status(201).json({ message: "Stock level update successfully" });
+        } catch (error) {
+            console.log(error);
+            res.status(401).send("invalid input");
+        }
+    }
     return {
         getAllShoes,
         getShoesByBrand,
         getShoesBySize,
-        getShoesBySizeBrand
+        getShoesBySizeBrand,
+        addShoes,
+        updateStock,
     };
 }
