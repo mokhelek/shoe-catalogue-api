@@ -25,9 +25,21 @@ export default function shoesService(db) {
             console.log(error);
         }
     }
+
+    async function getShoesBySizeBrand(req, res) {
+        try {
+            let shoesListByBrandSize = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND brand = $2", [req.params.shoeSize, req.params.brandName]);
+            res.status(200).json(shoesListByBrandSize);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     return {
         getAllShoes,
         getShoesByBrand,
         getShoesBySize,
+        getShoesBySizeBrand
     };
 }
