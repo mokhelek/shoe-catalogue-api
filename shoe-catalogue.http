@@ -1,29 +1,35 @@
+### Gets all routes
+GET http://localhost:3000/
 
-### 
+
+### Gets all shoes
 GET http://localhost:3000/api/shoes
 
-###
 
+### Filters by brand
 GET http://localhost:3000/api/shoes/brand/Gucci
 
-###
 
+### Filters by color
 GET http://localhost:3000/api/shoes/color/red
 
-###
 
+### Filters by size
 GET http://localhost:3000/api/shoes/size/6
 
-###
 
+### Filters by brand and size
 GET http://localhost:3000/api/shoes/brand/Gucci/size/7
 
-###
 
+### Filters by size and color
 GET http://localhost:3000/api/shoes/size/7/color/black
 
-###
 
+### Filters by brand and color
+GET http://localhost:3000/api/shoes/brand/Gucci/color/black
+
+###  Filters by brand, size and color
 GET http://localhost:3000/api/shoes/brand/Gucci/size/7/color/black
 
 ###
