@@ -17,6 +17,8 @@ router.get("/color/:shoeColor",shoeServiceInstance.getShoesByColor );
 
 router.get("/brand/:brandName/size/:shoeSize", shoeServiceInstance.getShoesBySizeBrand );
 
+router.get("/size/:shoeSize/color/:shoeColor", shoeServiceInstance.getShoesBySizeColor );
+
 router.get("/brand/:brandName/size/:shoeSize/color/:shoeColor", shoeServiceInstance.getShoesBySizeBrandColor );
 
 router.post("/", shoeServiceInstance.addShoes );

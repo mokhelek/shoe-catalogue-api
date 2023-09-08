@@ -1,4 +1,6 @@
 export default function shoesService(db) {
+
+
     async function getAllShoes(req, res) {
         try {
             let shoesList = await db.any("SELECT * FROM shoes_stock ORDER BY id DESC");
@@ -34,11 +36,21 @@ export default function shoesService(db) {
             console.log(error);
         }
     }
+    
 
     async function getShoesBySizeBrand(req, res) {
         try {
             let shoesListByBrandSize = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND brand = $2 ORDER BY id DESC", [req.params.shoeSize, req.params.brandName]);
             res.status(200).json(shoesListByBrandSize);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function getShoesBySizeColor(req, res) {
+        try {
+            let shoesListBySizeColor = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND color = $2 ORDER BY id DESC", [req.params.shoeSize, req.params.shoeColor]);
+            res.status(200).json(shoesListBySizeColor);
         } catch (error) {
             console.log(error);
         }
@@ -80,11 +92,15 @@ export default function shoesService(db) {
             res.status(401).send("invalid input");
         }
     }
+
+
+
     return {
         getAllShoes,
         getShoesByBrand,
         getShoesBySize,
         getShoesByColor,
+        getShoesBySizeColor,
         getShoesBySizeBrand,
         addShoes,
         updateStock,
