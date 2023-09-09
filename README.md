@@ -35,8 +35,8 @@ Welcome to the Shoe Catalogue API documentation. This API allows you to manage a
 
 4. Run the server
 
-  ```bash
-  npm start
+   ```bash
+   npm start
 
 ## Technologies
 
@@ -46,5 +46,4 @@ Welcome to the Shoe Catalogue API documentation. This API allows you to manage a
 * Database: PostgreSQL
 * Testing: Mocha
 * Development Methodology: TDD (Test Driven Development)
-
   
