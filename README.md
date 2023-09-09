@@ -16,7 +16,35 @@ Welcome to the Shoe Catalogue API documentation. This API allows you to manage a
 * `POST /api/shoes` - Adds new shoes
 * `POST /api/shoes/sold/<shoe_id>` - Updates stock level
 
+## Getting Started
+
+1. Clone this repository to your local machine:
+
+   ```bash
+   git clone https://github.com/mokhelek/shoe-catalogue-api.git
+
+2. Navigate into the project's folder
+
+   ```bash
+   cd shoe-catalogue-api
+
+3. Install dependencies
+
+   ```bash
+   npm install
+
+4. Run the server
+
+  ```bash
+  npm start
+
 ## Technologies
 
-* Express.js
-* PostgreSQL
+* Langauge: Javascript
+* Framework: Express.js
+* Runtime: Node
+* Database: PostgreSQL
+* Testing: Mocha
+* Development Methodology: TDD (Test Driven Development)
+
+  
