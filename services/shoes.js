@@ -36,7 +36,6 @@ export default function shoesService(db) {
             console.log(error);
         }
     }
-    
 
     async function getShoesBySizeBrand(req, res) {
         try {
@@ -64,7 +63,6 @@ export default function shoesService(db) {
             console.log(error);
         }
     }
-
 
     async function getShoesBySizeBrandColor(req, res) {
         try {
