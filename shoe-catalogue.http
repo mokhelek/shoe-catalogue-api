@@ -32,8 +32,8 @@ GET http://localhost:3000/api/shoes/brand/Gucci/color/black
 ###  Filters by brand, size and color
 GET http://localhost:3000/api/shoes/brand/Gucci/size/7/color/black
 
-###
 
+### adds a new shoe
 POST http://localhost:3000/api/shoes
 content-type: application/json 
 

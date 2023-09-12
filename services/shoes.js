@@ -1,6 +1,4 @@
 export default function shoesService(db) {
-
-
     async function getAllShoes(req, res) {
         try {
             let shoesList = await db.any("SELECT * FROM shoes_stock ORDER BY id DESC");
@@ -101,8 +99,6 @@ export default function shoesService(db) {
         }
     }
 
-
-
     return {
         getAllShoes,
         getShoesByBrand,
@@ -113,6 +109,6 @@ export default function shoesService(db) {
         addShoes,
         updateStock,
         getShoesBySizeBrandColor,
-        getShoesByBrandColor
+        getShoesByBrandColor,
     };
 }

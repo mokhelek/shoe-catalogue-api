@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:18-alpine
 
 WORKDIR /shoes_api
 
@@ -8,4 +8,4 @@ RUN npm install
 
 EXPOSE 3000
 
-CMD node index.js
+CMD ["node", "index.js"]

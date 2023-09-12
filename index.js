@@ -59,11 +59,12 @@ app.get("/",(req, res) => {
 
 
 import shoesRouter from "./routes/shoes.js";
+import cartRouter from "./routes/cart.js";
 
-app.use("/api/shoes",shoesRouter)
+app.use("/api/shoes",shoesRouter);
+app.use("/api/cart",cartRouter);
 
-
-let PORT = process.env.PORT || 3000;
+let PORT = process.env.PORT || 3001;
 app.listen(PORT, function () {
     console.log("App starting on port", PORT);
 });

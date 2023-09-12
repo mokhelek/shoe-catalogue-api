@@ -1,14 +1,3 @@
-CREATE TABLE shoes_stock(
-    id SERIAL PRIMARY KEY,
-    shoe_name VARCHAR(100),
-    brand VARCHAR(100),
-    size VARCHAR(3),
-    price VARCHAR(100),
-    image_url VARCHAR(500),
-    color VARCHAR(100),
-    quantity INT 
-);
-
 INSERT INTO shoes_stock(shoe_name, brand, size, price, image_url, color, quantity)
 VALUES
     ('Gucci Loafer','Gucci','8','11000','https://catalog-resize-images.thedoublef.com/9b85a5ca98152c0f1e4a1e2538b6ca2e/900/900/3079291M0C0_M_GUC-3154.b.jpg','green',5 ),
