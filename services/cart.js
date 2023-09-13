@@ -30,8 +30,20 @@ export default function cartService(db) {
         }
     }
 
+    async function removeFromCart(req, res){
+        try{
+           await db.none("DELETE FROM shopping_cart WHERE shopping_cart.shoe_id = $1", [req.params.shoeID])
+           res.status(201).json({ message: "Successfully removed Item from cart" });
+        }catch(error){
+            console.log(error);
+            res.status(501)
+        }
+    }
+
     return {
         getCartItems,
-        addToCart
+        addToCart,
+        removeFromCart
+        
     };
 }

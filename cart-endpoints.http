@@ -1,6 +1,9 @@
 
 GET http://localhost:3001/api/cart/
 
-###
-
+### ADDS Shoes To Cart
 POST http://localhost:3001/api/cart/add-to-cart/2
+
+
+### Remove Shoe From Cart
+POST http://localhost:3001/api/cart/remove-from-cart/2

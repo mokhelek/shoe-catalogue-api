@@ -9,5 +9,6 @@ let cartServiceInstance = cartService(db);
 
 router.get("/", cartServiceInstance.getCartItems );
 router.post("/add-to-cart/:shoeID", cartServiceInstance.addToCart );
+router.post("/remove-from-cart/:shoeID", cartServiceInstance.removeFromCart );
 
 export default router;
