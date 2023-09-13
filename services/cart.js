@@ -19,7 +19,19 @@ export default function cartService(db) {
         }
     }
 
+
+    async function addToCart(req, res){
+        try{
+           await db.none("INSERT INTO shopping_cart(shoe_id, quantity) VALUES ($1, $2)", [req.params.shoeID, 1])
+           res.status(201).json({ message: "Successfully added Item to cart" });
+        }catch(error){
+            console.log(error);
+            res.status(501)
+        }
+    }
+
     return {
         getCartItems,
+        addToCart
     };
 }

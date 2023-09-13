@@ -1,3 +1,6 @@
 
-
 GET http://localhost:3001/api/cart/
+
+###
+
+POST http://localhost:3001/api/cart/add-to-cart/2
