@@ -7,3 +7,8 @@ VALUES
     ('Gucci Stripped Loafers','Gucci','7','8000','https://image.harrods.com/gucci-leather-web-stripe-loafers_16165319_36472932_300.jpg','black', 'Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque',15 ),
     ('Versace Classics','Versace','7','14000','https://cdn.shopify.com/s/files/1/0066/9561/6567/products/10a_4549f4b4-6776-4370-ba70-db1301b8b15c_600x.jpg?v=1608805423','black', 'Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque',15 );
 
+
+INSERT INTO customer(username,password,email)
+VALUES
+    ('katleho','1234','email@gmail.com'),
+    ('tom','1234','demo@gmail.com');

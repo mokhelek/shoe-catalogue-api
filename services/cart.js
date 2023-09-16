@@ -10,9 +10,11 @@ export default function cartService(db) {
                         shoes_stock.color,
                         shopping_cart.quantity
                         FROM shoes_stock
-                        INNER JOIN shopping_cart ON shoes_stock.id = shopping_cart.shoe_id `;
+                        INNER JOIN shopping_cart ON shoes_stock.id = shopping_cart.shoe_id 
+                        WHERE shopping_cart.username = $1
+                        `;
         try {
-            const cartItems = await db.manyOrNone(query);
+            const cartItems = await db.manyOrNone(query,[req.params.username]);
             res.status(200).json(cartItems);
         } catch (error) {
             console.log(error);
