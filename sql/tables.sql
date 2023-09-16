@@ -11,6 +11,14 @@ CREATE TABLE shoes_stock(
     stock_quantity INT 
 );
 
+-- Customer Table
+CREATE TABLE customer(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE,
+    password VARCHAR(500), -- Automatically hashed
+    email VARCHAR(100) UNIQUE
+);
+
 -- Shopping Cart Table
 CREATE TABLE shopping_cart(
     id SERIAL PRIMARY KEY,
@@ -21,11 +29,5 @@ CREATE TABLE shopping_cart(
     FOREIGN KEY (username) REFERENCES customer(username)
 );
 
--- Customer Table
-CREATE TABLE customer(
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) UNIQUE,
-    password VARCHAR(500), -- Automatically hashed
-    email VARCHAR(100) UNIQUE
-);
+
 

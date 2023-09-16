@@ -1,74 +1,44 @@
 export default function shoesService(db) {
+
+
     async function getAllShoes(req, res) {
-        try {
-            let shoesList = await db.any("SELECT * FROM shoes_stock ORDER BY id DESC");
-            res.status(200).json(shoesList);
-        } catch (error) {
-            console.log(error);
-        }
+        let shoesList = await db.any("SELECT * FROM shoes_stock ORDER BY id DESC");
+        return shoesList;
     }
 
     async function getShoesByBrand(req, res) {
-        try {
-            let shoesListByBrand = await db.any("SELECT * FROM shoes_stock WHERE brand = $1 ORDER BY id DESC", req.params.brandName);
-            res.status(200).json(shoesListByBrand);
-        } catch (error) {
-            console.log(error);
-        }
+        let shoesListByBrand = await db.any("SELECT * FROM shoes_stock WHERE brand = $1 ORDER BY id DESC", req.params.brandName);
+        return shoesListByBrand;
     }
 
     async function getShoesByColor(req, res) {
-        try {
-            let shoesListByColor = await db.any("SELECT * FROM shoes_stock WHERE color = $1 ORDER BY id DESC", req.params.shoeColor);
-            res.status(200).json(shoesListByColor);
-        } catch (error) {
-            console.log(error);
-        }
+        let shoesListByColor = await db.any("SELECT * FROM shoes_stock WHERE color = $1 ORDER BY id DESC", req.params.shoeColor);
+        return shoesListByColor;
     }
 
     async function getShoesBySize(req, res) {
-        try {
-            let shoesListBySize = await db.any("SELECT * FROM shoes_stock WHERE size = $1 ORDER BY id DESC", req.params.shoeSize);
-            res.status(200).json(shoesListBySize);
-        } catch (error) {
-            console.log(error);
-        }
+        let shoesListBySize = await db.any("SELECT * FROM shoes_stock WHERE size = $1 ORDER BY id DESC", req.params.shoeSize);
+        return shoesListBySize;
     }
 
     async function getShoesBySizeBrand(req, res) {
-        try {
-            let shoesListByBrandSize = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND brand = $2 ORDER BY id DESC", [req.params.shoeSize, req.params.brandName]);
-            res.status(200).json(shoesListByBrandSize);
-        } catch (error) {
-            console.log(error);
-        }
+        let shoesListByBrandSize = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND brand = $2 ORDER BY id DESC", [req.params.shoeSize, req.params.brandName]);
+       return shoesListByBrandSize;
     }
 
     async function getShoesBySizeColor(req, res) {
-        try {
-            let shoesListBySizeColor = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND color = $2 ORDER BY id DESC", [req.params.shoeSize, req.params.shoeColor]);
-            res.status(200).json(shoesListBySizeColor);
-        } catch (error) {
-            console.log(error);
-        }
+        let shoesListBySizeColor = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND color = $2 ORDER BY id DESC", [req.params.shoeSize, req.params.shoeColor]);
+        return shoesListBySizeColor;
     }
 
     async function getShoesByBrandColor(req, res) {
-        try {
-            let shoesListByBrandColor = await db.any("SELECT * FROM shoes_stock WHERE brand = $1 AND color = $2 ORDER BY id DESC", [req.params.brandName, req.params.shoeColor]);
-            res.status(200).json(shoesListByBrandColor);
-        } catch (error) {
-            console.log(error);
-        }
+        let shoesListByBrandColor = await db.any("SELECT * FROM shoes_stock WHERE brand = $1 AND color = $2 ORDER BY id DESC", [req.params.brandName, req.params.shoeColor]);
+        return shoesListByBrandColor;
     }
 
     async function getShoesBySizeBrandColor(req, res) {
-        try {
-            let shoesListByBrandSizeColor = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND brand = $2 AND color = $3 ORDER BY id DESC", [req.params.shoeSize, req.params.brandName, req.params.shoeColor]);
-            res.status(200).json(shoesListByBrandSizeColor);
-        } catch (error) {
-            console.log(error);
-        }
+        let shoesListByBrandSizeColor = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND brand = $2 AND color = $3 ORDER BY id DESC", [req.params.shoeSize, req.params.brandName, req.params.shoeColor]);
+        return shoesListByBrandSizeColor;
     }
 
     async function addShoes(req, res) {
@@ -76,13 +46,8 @@ export default function shoesService(db) {
             INSERT INTO shoes_stock(shoe_name, brand, size, price, image_url, color, stock_quantity)
             VALUES ($1,$2,$3,$4,$5,$6,$7)
             `;
-        try {
-            await db.oneOrNone(insertQuery, [req.body.shoe_name, req.body.brand, req.body.size, req.body.price, req.body.image_url, req.body.color, req.body.quantity]);
-            res.status(201).json({ message: "Shoes stock successfully updated" });
-        } catch (error) {
-            console.log(error);
-            res.status(400).send("invalid input");
-        }
+        await db.oneOrNone(insertQuery, [req.body.shoe_name, req.body.brand, req.body.size, req.body.price, req.body.image_url, req.body.color, req.body.quantity]);
+       
     }
 
     async function updateStock(req, res) {
@@ -90,13 +55,8 @@ export default function shoesService(db) {
             UPDATE shoes_stock
             SET quantity = shoes_stock.stock_stock_quantity - 1 WHERE id = $1
         `;
-        try {
-            await db.any(insertQuery, [req.params.id]);
-            res.status(201).json({ message: "Stock level update successfully" });
-        } catch (error) {
-            console.log(error);
-            res.status(401).send("invalid input");
-        }
+        await db.any(insertQuery, [req.params.id]);
+      
     }
 
     return {
