@@ -79,7 +79,7 @@ export default function shoesController() {
 
     async function addShoes(req, res) {
         try {
-            shoesServiceInstance.addShoes();
+            await shoesServiceInstance.addShoes();
             res.status(201).json({ message: "Shoes stock successfully updated" });
         } catch (error) {
             console.log(error);
@@ -90,7 +90,7 @@ export default function shoesController() {
     async function updateStock(req, res) {
       
         try {
-            shoesServiceInstance.updateStock()
+            await shoesServiceInstance.updateStock()
             res.status(201).json({ message: "Stock level update successfully" });
         } catch (error) {
             console.log(error);

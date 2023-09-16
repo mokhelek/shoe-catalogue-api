@@ -13,39 +13,21 @@ export default function cartService(db) {
                         INNER JOIN shopping_cart ON shoes_stock.id = shopping_cart.shoe_id 
                         WHERE shopping_cart.username = $1
                         `;
-        try {
-            const cartItems = await db.manyOrNone(query,[req.params.username]);
-            res.status(200).json(cartItems);
-        } catch (error) {
-            console.log(error);
-        }
+        const cartItems = await db.manyOrNone(query, [req.params.username]);
+        return cartItems;
     }
 
-
-    async function addToCart(req, res){
-        try{
-           await db.none("INSERT INTO shopping_cart(shoe_id, quantity) VALUES ($1, $2)", [req.params.shoeID, 1])
-           res.status(201).json({ message: "Successfully added Item to cart" });
-        }catch(error){
-            console.log(error);
-            res.status(501)
-        }
+    async function addToCart(req, res) {
+        await db.none("INSERT INTO shopping_cart(shoe_id, quantity) VALUES ($1, $2)", [req.params.shoeID, 1]); 
     }
 
-    async function removeFromCart(req, res){
-        try{
-           await db.none("DELETE FROM shopping_cart WHERE shopping_cart.shoe_id = $1", [req.params.shoeID])
-           res.status(201).json({ message: "Successfully removed Item from cart" });
-        }catch(error){
-            console.log(error);
-            res.status(501)
-        }
+    async function removeFromCart(req, res) {
+        await db.none("DELETE FROM shopping_cart WHERE shopping_cart.shoe_id = $1", [req.params.shoeID]);
     }
 
     return {
         getCartItems,
         addToCart,
-        removeFromCart
-        
+        removeFromCart,
     };
 }
