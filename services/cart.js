@@ -1,5 +1,7 @@
 export default function cartService(db) {
-    async function getCartItems(req, res) {
+
+
+    async function getCartItems(data) {
         const query = `SELECT 
                         shoes_stock.id,
                         shoes_stock.shoe_name,
@@ -13,16 +15,16 @@ export default function cartService(db) {
                         INNER JOIN shopping_cart ON shoes_stock.id = shopping_cart.shoe_id 
                         WHERE shopping_cart.username = $1
                         `;
-        const cartItems = await db.manyOrNone(query, [req.params.username]);
+        const cartItems = await db.manyOrNone(query, data);
         return cartItems;
     }
 
-    async function addToCart(req, res) {
-        await db.none("INSERT INTO shopping_cart(shoe_id, quantity) VALUES ($1, $2)", [req.params.shoeID, 1]); 
+    async function addToCart(data) {
+        await db.none("INSERT INTO shopping_cart(shoe_id, quantity) VALUES ($1, $2)", data); 
     }
 
-    async function removeFromCart(req, res) {
-        await db.none("DELETE FROM shopping_cart WHERE shopping_cart.shoe_id = $1", [req.params.shoeID]);
+    async function removeFromCart(id) {
+        await db.none("DELETE FROM shopping_cart WHERE shopping_cart.shoe_id = $1", id);
     }
 
     return {
