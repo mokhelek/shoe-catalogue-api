@@ -1,8 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
 import session from "express-session";
+import 'dotenv/config';
 import cors from "cors"
-
 
 let app = express();
 
@@ -60,11 +60,13 @@ app.get("/",(req, res) => {
 
 import shoesRouter from "./routes/shoes.js";
 import cartRouter from "./routes/cart.js";
+import authRouter from "./routes/auth.js"
 
 app.use("/api/shoes",shoesRouter);
 app.use("/api/cart",cartRouter);
+app.use("/api/auth",authRouter);
 
-let PORT = process.env.PORT || 3001;
+let PORT = process.env.PORT ;
 app.listen(PORT, function () {
-    console.log("App starting on port", PORT);
+    console.log(" 🚀 Taking off on port ", PORT);
 });

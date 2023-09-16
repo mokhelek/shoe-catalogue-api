@@ -1,40 +1,40 @@
 ### Gets all routes
-GET http://localhost:3000/
+GET http://localhost:5400/
 
 
 ### Gets all shoes
-GET http://localhost:3000/api/shoes
+GET http://localhost:5400/api/shoes
 
 
 ### Filters by brand
-GET http://localhost:3000/api/shoes/brand/Gucci
+GET http://localhost:5400/api/shoes/brand/Gucci
 
 
 ### Filters by color
-GET http://localhost:3000/api/shoes/color/red
+GET http://localhost:5400/api/shoes/color/red
 
 
 ### Filters by size
-GET http://localhost:3000/api/shoes/size/6
+GET http://localhost:5400/api/shoes/size/6
 
 
 ### Filters by brand and size
-GET http://localhost:3000/api/shoes/brand/Gucci/size/7
+GET http://localhost:5400/api/shoes/brand/Gucci/size/7
 
 
 ### Filters by size and color
-GET http://localhost:3000/api/shoes/size/7/color/black
+GET http://localhost:5400/api/shoes/size/7/color/black
 
 
 ### Filters by brand and color
-GET http://localhost:3000/api/shoes/brand/Gucci/color/black
+GET http://localhost:5400/api/shoes/brand/Gucci/color/black
 
 ###  Filters by brand, size and color
-GET http://localhost:3000/api/shoes/brand/Gucci/size/7/color/black
+GET http://localhost:5400/api/shoes/brand/Gucci/size/7/color/black
 
 
 ### adds a new shoe
-POST http://localhost:3000/api/shoes
+POST http://localhost:5400/api/shoes
 content-type: application/json 
 
 {
@@ -51,7 +51,7 @@ content-type: application/json
 
 ###
 
-POST http://localhost:3000/api/shoes/sold/2
+POST http://localhost:5400/api/shoes/sold/2
 content-type: application/json 
 
 {

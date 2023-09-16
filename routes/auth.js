@@ -7,8 +7,9 @@ const authServiceInstance = authService(db);
 var router = express.Router();
 
 
-router.post("/login",authServiceInstance.userLogin );
-router.post("/register", authServiceInstance.userRegistration );
-router.get("/logout", authServiceInstance.userLogout );
+router.post("/register", authServiceInstance.customerRegistration );
+router.post("/login", authServiceInstance.userLogin );
+
+// router.get("/logout", authServiceInstance.userLogout );
 
 export default router ;
