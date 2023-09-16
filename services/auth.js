@@ -15,7 +15,7 @@ export default function authService(db) {
         }
     }
 
-    async function userLogin(req, res) {
+    async function customerLogin(req, res) {
         const { username, password } = req.body;
 
         const customer = await db.oneOrNone("SELECT * FROM customer WHERE username = $1", username);
@@ -34,5 +34,6 @@ export default function authService(db) {
 
     return {
         customerRegistration,
+        customerLogin
     };
 }

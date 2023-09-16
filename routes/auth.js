@@ -8,7 +8,7 @@ var router = express.Router();
 
 
 router.post("/register", authServiceInstance.customerRegistration );
-router.post("/login", authServiceInstance.userLogin );
+router.post("/login", authServiceInstance.customerLogin );
 
 // router.get("/logout", authServiceInstance.userLogout );
 
