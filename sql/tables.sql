@@ -8,7 +8,7 @@ CREATE TABLE shoes_stock(
     image_url VARCHAR(500),
     color VARCHAR(100),
     description TEXT,
-    quantity INT 
+    stock_quantity INT 
 );
 
 -- Shopping Cart Table

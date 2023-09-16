@@ -73,7 +73,7 @@ export default function shoesService(db) {
 
     async function addShoes(req, res) {
         let insertQuery = `
-            INSERT INTO shoes_stock(shoe_name, brand, size, price, image_url, color, quantity)
+            INSERT INTO shoes_stock(shoe_name, brand, size, price, image_url, color, stock_quantity)
             VALUES ($1,$2,$3,$4,$5,$6,$7)
             `;
         try {
@@ -88,7 +88,7 @@ export default function shoesService(db) {
     async function updateStock(req, res) {
         let insertQuery = `
             UPDATE shoes_stock
-            SET quantity = shoes_stock.quantity - 1 WHERE id = $1
+            SET quantity = shoes_stock.stock_stock_quantity - 1 WHERE id = $1
         `;
         try {
             await db.any(insertQuery, [req.params.id]);
