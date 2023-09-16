@@ -1,5 +1,7 @@
 # Shoe Catalogue API
 
+[![Node.js CI](https://github.com/mokhelek/shoe-catalogue-api/actions/workflows/node.js.yml/badge.svg)](https://github.com/mokhelek/shoe-catalogue-api/actions/workflows/node.js.yml)
+
 Welcome to the Shoe Catalogue API documentation. This API allows you to manage and retrieve information about shoes, including their brand, size, color, price, and quantity.
 
 ## Endpoints
