@@ -47,5 +47,6 @@ Welcome to the Shoe Catalogue API documentation. This API allows you to manage a
 * Runtime: Node
 * Database: PostgreSQL
 * Testing: Mocha
+* Container: Docker
 * Development Methodology: TDD (Test Driven Development)
   
