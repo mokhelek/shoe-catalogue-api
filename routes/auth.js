@@ -1,14 +1,12 @@
 import express from "express";
-import db from "../model/db.js";
-import authService from "../services/auth.js";
+import authController from "../controller/authController.js";
 
-
-const authServiceInstance = authService(db);
+const authControllerInstance = authController();
 var router = express.Router();
 
 
-router.post("/register", authServiceInstance.customerRegistration );
-router.post("/login", authServiceInstance.customerLogin );
+router.post("/register", authControllerInstance.customerRegistration );
+router.post("/login", authControllerInstance.customerLogin );
 
 // router.get("/logout", authServiceInstance.userLogout );
 

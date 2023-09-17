@@ -16,7 +16,7 @@ describe("The basic database web app", function () {
     this.timeout(10000);
     beforeEach(async function () {
         try {
-            await db.none("DROP TABLE shopping_cart");
+            await db.none("DELETE FROM shopping_cart");
 s        } catch (err) {
             console.log(err);
         }

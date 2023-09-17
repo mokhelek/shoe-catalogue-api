@@ -1,12 +1,20 @@
 import bcrypt from "bcrypt";
+import authService from "../services/auth.js";
+import db from "../model/db.js"
 
-export default function authService(db) {
+const authServiceInstance = authService(db)
+
+export default function authController() {
+
+
     async function customerRegistration(req, res) {
         const { username, password, email } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const data = [username, hashedPassword, email]
 
         try {
-            const hashedPassword = await bcrypt.hash(password, 10);
-            await db.none("INSERT INTO customer(username, password, email) VALUES($1, $2, $3)", [username, hashedPassword, email]);
+            await authServiceInstance.customerRegistration(data);
             // todo: -> redirect to login page
             res.status(201).json({ message: "Successfully registered" });
         } catch (error) {
@@ -18,7 +26,7 @@ export default function authService(db) {
     async function customerLogin(req, res) {
         const { username, password } = req.body;
 
-        const customer = await db.oneOrNone("SELECT * FROM customer WHERE username = $1", username);
+        const customer = await authServiceInstance.customerLogin(username);
 
 
         if (customer) {

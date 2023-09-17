@@ -1,14 +1,12 @@
 import express from "express";
-import db from "../model/db.js";
-import cartService from "../services/cart.js";
+import cartController from "../controller/cartController.js";
 
 var router = express.Router();
 
-let cartServiceInstance = cartService(db);
+let cartControllerInstance = cartController();
 
-
-router.get("/:username", cartServiceInstance.getCartItems );
-router.post("/:username/add-to-cart/:shoeID", cartServiceInstance.addToCart );
-router.post("/:username/remove-from-cart/:shoeID", cartServiceInstance.removeFromCart );
+router.get("/:username", cartControllerInstance.getCartItems);
+router.post("/:username/add-to-cart/:shoeID", cartControllerInstance.addToCart);
+router.post("/:username/remove-from-cart/:shoeID", cartControllerInstance.removeFromCart);
 
 export default router;

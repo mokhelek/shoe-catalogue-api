@@ -4,7 +4,7 @@ import db from "../model/db.js";
 let cartServiceInstance = cartService(db)
 
 
-export default function cartService() {
+export default function cartController() {
     async function getCartItems(req, res) {
       
         try {
