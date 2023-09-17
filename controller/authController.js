@@ -1,6 +1,8 @@
 import bcrypt from "bcrypt";
 import authService from "../services/auth.js";
 import db from "../model/db.js"
+import 'dotenv/config';
+import jwt  from "jsonwebtoken";
 
 const authServiceInstance = authService(db)
 
@@ -24,7 +26,7 @@ export default function authController() {
     }
 
     async function customerLogin(req, res) {
-        const { username, password } = req.body;
+        let { username, password } = req.body;
 
         const customer = await authServiceInstance.customerLogin(username);
 
@@ -34,8 +36,12 @@ export default function authController() {
 
             if (passwordMatch) {
                 // todo:-> create and send back a token
+                const user = {username}
+                const userAccessToken =  jwt.sign(user, process.env.ACCESS_TOKEN_KEY);
+                res.json({userAccessToken})
             } else {
                 // todo:-> send back data to be used in frontend
+
             }
         }
     }

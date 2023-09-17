@@ -1,4 +1,3 @@
-import bcrypt from "bcrypt";
 
 export default function authService(db) {
 
