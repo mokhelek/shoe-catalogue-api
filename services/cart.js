@@ -20,7 +20,7 @@ export default function cartService(db) {
     }
 
     async function addToCart(data) {
-        await db.none("INSERT INTO shopping_cart(shoe_id, quantity) VALUES ($1, $2)", data); 
+        await db.none("INSERT INTO shopping_cart(shoe_id, username, quantity) VALUES ($1, $2, $3)", data); 
     }
 
     async function removeFromCart(id) {

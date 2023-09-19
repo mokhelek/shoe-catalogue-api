@@ -1,5 +1,8 @@
 
-GET http://localhost:5400/api/cart/
+GET http://localhost:5400/api/cart
+content-type: application/json 
+authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWF0IjoxNjk1MTYxMDU3fQ.RiloVGJ3ZbzskR0dyLTV7auk206rSKel6VISVPKqZ1o 
+
 
 ### ADDS Shoes To Cart
 POST http://localhost:5400/api/cart/add-to-cart/2

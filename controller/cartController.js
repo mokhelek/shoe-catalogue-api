@@ -6,9 +6,9 @@ let cartServiceInstance = cartService(db)
 
 export default function cartController() {
     async function getCartItems(req, res) {
-      
+
         try {
-            const cartItems = await cartServiceInstance.getCartItems(req.params.username)
+            const cartItems = await cartServiceInstance.getCartItems('user2')
             res.status(200).json(cartItems);
         } catch (error) {
             console.log(error);
@@ -17,7 +17,8 @@ export default function cartController() {
 
 
     async function addToCart(req, res){
-        const data = [req.params.shoeID, 1];
+        console.log(req.user);
+        const data = [req.params.shoeID, req.user, 1];
         try{
            await cartServiceInstance.addToCart(data)
            res.status(201).json({ message: "Successfully added Item to cart" });
