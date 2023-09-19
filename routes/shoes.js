@@ -2,7 +2,7 @@ import express from "express";
 import shoesController from "../controller/shoesController.js";
 var router = express.Router();
 import cors from "cors"
-app.use(cors());
+router.use(cors());
 
 let shoesControllerInstance = shoesController();
 
