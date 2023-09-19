@@ -1,5 +1,7 @@
 import express from "express";
 import cartController from "../controller/cartController.js";
+import cors from "cors"
+app.use(cors());
 
 var router = express.Router();
 
