@@ -2,6 +2,10 @@ import express from "express";
 import bodyParser from "body-parser";
 import session from "express-session";
 import 'dotenv/config';
+
+import shoesRouter from "./routes/shoes.js";
+import cartRouter from "./routes/cart.js";
+import authRouter from "./routes/auth.js"
 import cors from "cors"
 
 let app = express();
@@ -58,9 +62,6 @@ app.get("/",(req, res) => {
 });
 
 
-import shoesRouter from "./routes/shoes.js";
-import cartRouter from "./routes/cart.js";
-import authRouter from "./routes/auth.js"
 
 app.use("/api/shoes",shoesRouter);
 app.use("/api/cart",cartRouter);
