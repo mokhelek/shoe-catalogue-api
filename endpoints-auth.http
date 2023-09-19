@@ -1,12 +1,12 @@
 
 ### Registration endpoint
-POST  http://localhost:5400/api/auth/register
+POST  https://shoe-catalogue-api.onrender.com/api/auth/register
 content-type: application/json 
 
 {
-    "username":"user3",
+    "username":"user4",
     "password": "1234",
-    "email": "gg@gmail.com"
+    "email": "gg@g5mail.com"
 }
 
 ### Login enpoint

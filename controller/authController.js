@@ -26,7 +26,7 @@ export default function authController() {
     }
 
     async function customerLogin(req, res) {
-        let { username, password } = req.body;
+        const { username, password } = req.body;
 
         const customer = await authServiceInstance.customerLogin(username);
 
@@ -35,12 +35,11 @@ export default function authController() {
             const passwordMatch = await bcrypt.compare(password, customer.password);
 
             if (passwordMatch) {
-                // todo:-> create and send back a token
                 const user = {username}
                 const userAccessToken =  jwt.sign(user, process.env.ACCESS_TOKEN_KEY);
                 res.json({userAccessToken})
             } else {
-                // todo:-> send back data to be used in frontend
+                res.status(404)
 
             }
         }
