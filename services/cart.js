@@ -23,8 +23,8 @@ export default function cartService(db) {
         await db.none("INSERT INTO shopping_cart(shoe_id, username, quantity) VALUES ($1, $2, $3)", data); 
     }
 
-    async function removeFromCart(id) {
-        await db.none("DELETE FROM shopping_cart WHERE shopping_cart.shoe_id = $1", id);
+    async function removeFromCart(data) {
+        await db.none("DELETE FROM shopping_cart WHERE shopping_cart.shoe_id = $1 AND shopping_cart.username = $2", data);
     }
 
     return {

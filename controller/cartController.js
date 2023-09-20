@@ -30,8 +30,9 @@ export default function cartController() {
     }
 
     async function removeFromCart(req, res){
+        const data = [req.params.shoeID, req.user.username];
         try{
-           await cartServiceInstance.removeFromCart(req.params.shoeID)
+           await cartServiceInstance.removeFromCart(data)
            res.status(201).json({ message: "Successfully removed Item from cart" });
         }catch(error){
             console.log(error);
