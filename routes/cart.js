@@ -22,8 +22,6 @@ function authenticateToken(req, res, next) {
             }
         });
     }
-
-    next();
 }
 
 router.get("/", authenticateToken, cartControllerInstance.getCartItems);
