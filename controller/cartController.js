@@ -40,10 +40,23 @@ export default function cartController() {
         }
     }
 
+    async function updateCart(req, res){
+        console.log(req.body.quantity)
+        const data = [req.body.quantity , req.user.username, req.params.shoeID];
+        try{
+           await cartServiceInstance.updateCart(data)
+           res.status(201).json({ message: "Successfully updated cart" });
+        }catch(error){
+            console.log(error);
+            res.status(501)
+        }
+    }
+
     return {
         getCartItems,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        updateCart
         
     };
 }

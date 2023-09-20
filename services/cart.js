@@ -27,9 +27,15 @@ export default function cartService(db) {
         await db.none("DELETE FROM shopping_cart WHERE shopping_cart.shoe_id = $1 AND shopping_cart.username = $2", data);
     }
 
+    async function updateCart(data) {
+        await db.any("UPDATE shopping_cart SET quantity = $1 WHERE username = $2 AND shoe_id = $3", data);
+    }
+
+
     return {
         getCartItems,
         addToCart,
         removeFromCart,
+        updateCart
     };
 }
