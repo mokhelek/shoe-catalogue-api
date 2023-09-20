@@ -8,10 +8,10 @@ export default function cartController() {
 
     
     async function getCartItems(req, res) {
-
+        console.log(req.user);
         try {
-            const cartItems = await cartServiceInstance.getCartItems('user2')
-            res.status(200).json(cartItems);
+            const userCartItems = await cartServiceInstance.getCartItems('user2')
+            res.json(userCartItems);
         } catch (error) {
             console.log(error);
         }
@@ -19,7 +19,6 @@ export default function cartController() {
 
 
     async function addToCart(req, res){
-        console.log(req.user);
         const data = [req.params.shoeID, req.user, 1];
         try{
            await cartServiceInstance.addToCart(data)

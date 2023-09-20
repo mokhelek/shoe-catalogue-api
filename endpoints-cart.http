@@ -1,7 +1,6 @@
 
-GET http://localhost:5400/api/cart
-content-type: application/json 
-authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWF0IjoxNjk1MTYxMDU3fQ.RiloVGJ3ZbzskR0dyLTV7auk206rSKel6VISVPKqZ1o 
+GET http://localhost:5400/api/cart/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWF0IjoxNjk1MTc2MzQwfQ.TTwBtRTIbG-om9Uibzf1MHILiOYYoJxaC_GWLvWMedo 
 
 
 ### ADDS Shoes To Cart
