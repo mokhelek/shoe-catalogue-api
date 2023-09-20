@@ -25,7 +25,7 @@ function authenticateToken(req, res, next) {
 }
 
 router.get("/", authenticateToken, cartControllerInstance.getCartItems);
-router.post("/add-to-cart/:shoeID", cartControllerInstance.addToCart);
+router.post("/add-to-cart/:shoeID", authenticateToken, cartControllerInstance.addToCart);
 router.post("/remove-from-cart/:shoeID", cartControllerInstance.removeFromCart);
 
 export default router;

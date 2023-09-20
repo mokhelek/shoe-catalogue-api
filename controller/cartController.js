@@ -19,7 +19,7 @@ export default function cartController() {
 
 
     async function addToCart(req, res){
-        const data = [req.params.shoeID, req.user, 1];
+        const data = [req.params.shoeID, req.user.username, 1];
         try{
            await cartServiceInstance.addToCart(data)
            res.status(201).json({ message: "Successfully added Item to cart" });

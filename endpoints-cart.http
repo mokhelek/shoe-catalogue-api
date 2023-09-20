@@ -5,6 +5,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
 
 ### ADDS Shoes To Cart
 POST http://localhost:5400/api/cart/add-to-cart/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIzIiwiaWF0IjoxNjk1MTc3NDc5fQ.foDvQFiF2WRQVvzbH8Zxs-DQAgMOhKBUFc0V2juWYjg 
 
 
 ### Remove Shoe From Cart

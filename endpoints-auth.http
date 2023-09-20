@@ -9,8 +9,8 @@ content-type: application/json
     "email": "gg@g5mail.com"
 }
 
-### Login enpoint
-POST  http://localhost:5400/api/auth/login
+### Login endpoint
+POST  https://shoe-catalogue-api.onrender.com/api/auth/login
 content-type: application/json 
 
 {
