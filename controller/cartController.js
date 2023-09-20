@@ -8,9 +8,9 @@ export default function cartController() {
 
     
     async function getCartItems(req, res) {
-        console.log(req.user);
+        console.log();
         try {
-            const userCartItems = await cartServiceInstance.getCartItems('user2')
+            const userCartItems = await cartServiceInstance.getCartItems(req.user.username)
             res.json(userCartItems);
         } catch (error) {
             console.log(error);
