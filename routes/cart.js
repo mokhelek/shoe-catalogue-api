@@ -8,7 +8,7 @@ let cartControllerInstance = cartController();
 
 
 function authenticateToken(res, req, next){
-
+    console.log(req)
     const authHeader = req.headers['Authorization']
     const token = authHeader && authHeader.spilt(" ")[1];
 
@@ -26,7 +26,7 @@ function authenticateToken(res, req, next){
 
 
 router.get("/", authenticateToken, cartControllerInstance.getCartItems);
-router.post("/add-to-cart/:shoeID", authenticateToken, cartControllerInstance.addToCart);
+router.post("/add-to-cart/:shoeID", cartControllerInstance.addToCart);
 router.post("/:username/remove-from-cart/:shoeID", cartControllerInstance.removeFromCart);
 
 export default router;
