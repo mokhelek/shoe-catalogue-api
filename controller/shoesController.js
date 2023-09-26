@@ -4,6 +4,8 @@ import db from "../model/db.js";
 let shoesServiceInstance = shoesService(db);
 
 export default function shoesController() {
+
+
     async function getAllShoes(req, res) {
         let shoesList = await shoesServiceInstance.getAllShoes();
         try {
@@ -81,7 +83,17 @@ export default function shoesController() {
     }
 
     async function addShoes(req, res) {
-        const data = [req.body.shoe_name, req.body.brand, req.body.size, req.body.price, req.body.image_url, req.body.color, req.body.quantity]
+        const data = [
+            req.body.shoe_name, 
+            req.body.brand, 
+            req.body.size, 
+            req.body.price, 
+            req.body.image_url, 
+            req.body.color, 
+            req.body.quantity,
+            req.body.description
+        ]
+
         try {
             await shoesServiceInstance.addShoes(data);
             res.status(201).json({ message: "Shoes stock successfully updated" });

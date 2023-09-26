@@ -35,22 +35,22 @@ GET http://localhost:5400/api/shoes/brand/Gucci/size/7/color/black
 
 ### adds a new shoe
 POST http://localhost:5400/api/shoes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiYWRtaW5Vc2VyIjp0cnVlLCJpYXQiOjE2OTU3MjQ5MDR9.mIrtBSkTNlnQLcMCVcBGICXyMP8EAxttnbQK7UMRM7k
 content-type: application/json 
 
 {
-    "shoe_name": "Balenciaga Track Sneaker 2",
+    "shoe_name": "Balenciaga Track Sneaker 24",
     "brand": "Balenciaga",
     "size": "8",
     "price": "9500",
     "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxNjAw/z/MUQAAOSwQ1Fjfq8z/$_57.JPG?set_id=880000500F",
     "color": "gray",
-    "stock_stock_quantity": 14
+    "stock_stock_quantity": 14,
+    "description": "This is a detailed description of the shoe"
 
 }
 
-
 ###
-
 POST http://localhost:5400/api/shoes/sold/2
 content-type: application/json 
 

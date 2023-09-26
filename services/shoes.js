@@ -43,8 +43,8 @@ export default function shoesService(db) {
 
     async function addShoes(data) {
         let insertQuery = `
-            INSERT INTO shoes_stock(shoe_name, brand, size, price, image_url, color, stock_quantity)
-            VALUES ($1,$2,$3,$4,$5,$6,$7)
+            INSERT INTO shoes_stock(shoe_name, brand, size, price, image_url, color, stock_quantity, description)
+            VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
             `;
         await db.oneOrNone(insertQuery, data);
        

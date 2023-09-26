@@ -1,10 +1,27 @@
 import express from "express";
 import shoesController from "../controller/shoesController.js";
 var router = express.Router();
-import cors from "cors"
-router.use(cors());
+import jwt from "jsonwebtoken";
 
 let shoesControllerInstance = shoesController();
+
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers["authorization"];
+    const token = authHeader && authHeader.split(" ")[1];
+
+    if (token == null) {
+        return res.status(401);
+    } else {
+        jwt.verify(token, process.env.ACCESS_TOKEN_KEY, (err, user) => {
+            if (err) {
+                return res.status(403);
+            } else {
+                req.user = user;
+                next();
+            }
+        });
+    }
+}
 
 router.get("/", shoesControllerInstance.getAllShoes);
 
@@ -22,7 +39,7 @@ router.get("/brand/:brandName/color/:shoeColor", shoesControllerInstance.getShoe
 
 router.get("/brand/:brandName/size/:shoeSize/color/:shoeColor", shoesControllerInstance.getShoesBySizeBrandColor);
 
-router.post("/", shoesControllerInstance.addShoes);
+router.post("/", authenticateToken, shoesControllerInstance.addShoes);
 
 router.post("/sold/:id", shoesControllerInstance.updateStock);
 

@@ -27,7 +27,6 @@ export default function authController() {
 
     async function customerLogin(req, res) {
         const { username, password } = req.body;
-        console.log(username)
         
         const customer = await authServiceInstance.customerLogin(username);
         const admin = await authServiceInstance.adminLogin(username);
@@ -41,7 +40,7 @@ export default function authController() {
                     adminUser:false
                 }
                 const userAccessToken =  jwt.sign(user, process.env.ACCESS_TOKEN_KEY);
-                res.json({userAccessToken})
+                res.json({userAccessToken, user})
             } else {
                 res.status(400).json({ message: "Invalid login credentials" });
             }
@@ -54,7 +53,7 @@ export default function authController() {
                     adminUser:true
                 }
                 const userAccessToken =  jwt.sign(user, process.env.ACCESS_TOKEN_KEY);
-                res.json({userAccessToken})
+                res.json({userAccessToken, user})
             } else {
                 res.status(400).json({ message: "Invalid login credentials" });
             }
