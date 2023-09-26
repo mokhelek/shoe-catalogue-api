@@ -27,22 +27,44 @@ export default function authController() {
 
     async function customerLogin(req, res) {
         const { username, password } = req.body;
-
+        console.log(username)
+        
         const customer = await authServiceInstance.customerLogin(username);
-
-
+        const admin = await authServiceInstance.adminLogin(username);
+       
         if (customer) {
             const passwordMatch = await bcrypt.compare(password, customer.password);
 
             if (passwordMatch) {
-                const user = {username}
+                const user = {
+                    username,
+                    adminUser:false
+                }
                 const userAccessToken =  jwt.sign(user, process.env.ACCESS_TOKEN_KEY);
                 res.json({userAccessToken})
             } else {
-                res.status(404)
-
+                res.status(400).json({ message: "Invalid login credentials" });
             }
+        }else if(admin){
+            const passwordMatch = await bcrypt.compare(password, admin.password);
+
+            if (passwordMatch) {
+                const user = {
+                    username,
+                    adminUser:true
+                }
+                const userAccessToken =  jwt.sign(user, process.env.ACCESS_TOKEN_KEY);
+                res.json({userAccessToken})
+            } else {
+                res.status(400).json({ message: "Invalid login credentials" });
+            }
+        }else{
+            res.status(404).json({ message: "User does not exist" });
         }
+
+
+
+
     }
 
     return {

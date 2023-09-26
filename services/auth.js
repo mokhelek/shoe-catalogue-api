@@ -8,14 +8,20 @@ export default function authService(db) {
     }
 
     async function customerLogin(username) {
-
         const customer = await db.oneOrNone("SELECT * FROM customer WHERE username = $1", username);
+        console.log(customer)
         return customer;
+    }
 
+    async function adminLogin(username) {
+        const admin = await db.oneOrNone("SELECT * FROM admin WHERE username = $1", username);
+        console.log(admin)
+        return admin;
     }
 
     return {
         customerRegistration,
-        customerLogin
+        customerLogin,
+        adminLogin
     };
 }

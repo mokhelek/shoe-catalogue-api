@@ -41,7 +41,7 @@ export default function cartController() {
     }
 
     async function updateCart(req, res){
-        console.log(req.body.quantity)
+
         const data = [req.body.quantity , req.user.username, req.params.shoeID];
         try{
            await cartServiceInstance.updateCart(data)

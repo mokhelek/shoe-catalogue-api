@@ -4,16 +4,16 @@ POST  http://localhost:5400/api/auth/register
 content-type: application/json 
 
 {
-    "username":"user4",
+    "username":"user3",
     "password": "1234",
     "email": "gg@g5mail.com"
 }
 
 ### Login endpoint
-POST  https://shoe-catalogue-api.onrender.com/api/auth/login
+POST  http://localhost:5400/api/auth/login
 content-type: application/json 
 
 {
-    "username":"user3",
-    "password": "1234"
+    "username":"admin",
+    "password": "admin"
 }
