@@ -11,7 +11,7 @@ GET http://localhost:5400/api/shoes/brand/Gucci
 
 
 ### Filters by color
-GET http://localhost:5400/api/shoes/color/red
+GET http://localhost:5400/api/shoes/color/fff
 
 
 ### Filters by size
@@ -44,7 +44,7 @@ content-type: application/json
     "size": "8",
     "price": "2685",
     "image_url": "https://image1.lacoste.com/dw/image/v2/AAQM_PRD/on/demandware.static/Sites-ZA-Site/Sites-master/en_ZA/dw14a5f9be/41SMA0015_65T_01.jpg",
-    "color": "white",
+    "color": "#fff",
     "stock_quantity": 14,
     "description": "This is a detailed description of the shoe"
 

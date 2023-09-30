@@ -25,8 +25,9 @@ export default function shoesController() {
     }
 
     async function getShoesByColor(req, res) {
+
         try {
-            let shoesListByColor = await shoesServiceInstance.getShoesByColor(req.params.shoeColor);
+            let shoesListByColor = await shoesServiceInstance.getShoesByColor("#"+req.params.shoeColor);
             res.status(200).json(shoesListByColor);
         } catch (error) {
             console.log(error);
@@ -53,7 +54,7 @@ export default function shoesController() {
     }
 
     async function getShoesBySizeColor(req, res) {
-        const data = [req.params.shoeSize, req.params.shoeColor];
+        const data = [req.params.shoeSize, "#"+req.params.shoeColor];
         try {
             let shoesListBySizeColor = await shoesServiceInstance.getShoesBySizeColor(data);
             res.status(200).json(shoesListBySizeColor);
@@ -63,7 +64,7 @@ export default function shoesController() {
     }
 
     async function getShoesByBrandColor(req, res) {
-        const data = [req.params.brandName, req.params.shoeColor];
+        const data = [req.params.brandName, "#"+req.params.shoeColor];
         try {
             let shoesListByBrandColor = await shoesServiceInstance.getShoesByBrandColor(data);
             res.status(200).json(shoesListByBrandColor);
@@ -73,7 +74,7 @@ export default function shoesController() {
     }
 
     async function getShoesBySizeBrandColor(req, res) {
-        const data = [req.params.shoeSize, req.params.brandName, req.params.shoeColor];
+        const data = [req.params.shoeSize, req.params.brandName, "#"+req.params.shoeColor];
         try {
             let shoesListByBrandSizeColor = await shoesServiceInstance.getShoesBySizeBrandColor(data);
             res.status(200).json(shoesListByBrandSizeColor);
