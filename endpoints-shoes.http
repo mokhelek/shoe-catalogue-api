@@ -45,7 +45,7 @@ content-type: application/json
     "price": "9500",
     "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxNjAw/z/MUQAAOSwQ1Fjfq8z/$_57.JPG?set_id=880000500F",
     "color": "gray",
-    "stock_stock_quantity": 14,
+    "stock_quantity": 14,
     "description": "This is a detailed description of the shoe"
 
 }

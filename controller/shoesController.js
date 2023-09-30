@@ -90,7 +90,7 @@ export default function shoesController() {
             req.body.price, 
             req.body.image_url, 
             req.body.color, 
-            req.body.quantity,
+            req.body.stock_quantity,
             req.body.description
         ]
 
