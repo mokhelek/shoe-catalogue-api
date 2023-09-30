@@ -47,7 +47,6 @@ export default function shoesService(db) {
             VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
             `;
         await db.oneOrNone(insertQuery, data);
-       
     }
 
     async function updateStock(id) {

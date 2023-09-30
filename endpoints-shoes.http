@@ -35,16 +35,16 @@ GET http://localhost:5400/api/shoes/brand/Gucci/size/7/color/black
 
 ### adds a new shoe
 POST http://localhost:5400/api/shoes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiYWRtaW5Vc2VyIjp0cnVlLCJpYXQiOjE2OTU3MjQ5MDR9.mIrtBSkTNlnQLcMCVcBGICXyMP8EAxttnbQK7UMRM7k
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiYWRtaW5Vc2VyIjp0cnVlLCJpYXQiOjE2OTYwODIzNTh9.iaULFASfYLksmWjHlyCjTflgfa76HpbjzwjoHrQVz8Q
 content-type: application/json 
 
 {
-    "shoe_name": "Balenciaga Track Sneaker 24",
-    "brand": "Balenciaga",
+    "shoe_name": "Men’s Game Advance",
+    "brand": "Lacoste",
     "size": "8",
-    "price": "9500",
-    "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxNjAw/z/MUQAAOSwQ1Fjfq8z/$_57.JPG?set_id=880000500F",
-    "color": "gray",
+    "price": "2685",
+    "image_url": "https://image1.lacoste.com/dw/image/v2/AAQM_PRD/on/demandware.static/Sites-ZA-Site/Sites-master/en_ZA/dw14a5f9be/41SMA0015_65T_01.jpg",
+    "color": "white",
     "stock_quantity": 14,
     "description": "This is a detailed description of the shoe"
 

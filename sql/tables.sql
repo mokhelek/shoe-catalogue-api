@@ -15,7 +15,15 @@ CREATE TABLE shoes_stock(
 CREATE TABLE customer(
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE,
-    password VARCHAR(500), -- Automatically hashed
+    password VARCHAR(500), 
+    email VARCHAR(100) UNIQUE
+);
+
+-- Admin Table
+CREATE TABLE admin(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE,
+    password VARCHAR(500),
     email VARCHAR(100) UNIQUE
 );
 
@@ -27,7 +35,6 @@ CREATE TABLE shopping_cart(
     quantity INT,
     created_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY (shoe_id) REFERENCES shoes_stock(id),
-    FOREIGN KEY (username) REFERENCES customer(username)
 );
 
 

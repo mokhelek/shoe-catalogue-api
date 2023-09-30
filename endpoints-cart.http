@@ -1,11 +1,12 @@
 
+### Get Cart Items
 GET http://localhost:5400/api/cart/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIzIiwiaWF0IjoxNjk1MTc3NDc5fQ.foDvQFiF2WRQVvzbH8Zxs-DQAgMOhKBUFc0V2juWYjg 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiYWRtaW5Vc2VyIjpmYWxzZSwiaWF0IjoxNjk2MDg0MzI4fQ.y_6JKEF_jszAh7xSMDfaoqN60gJJzCbHGjasA8zthKk
 
 
 ### ADDS Shoes To Cart
-POST http://localhost:5400/api/cart/add-to-cart/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIzIiwiaWF0IjoxNjk1MTc3NDc5fQ.foDvQFiF2WRQVvzbH8Zxs-DQAgMOhKBUFc0V2juWYjg 
+POST http://localhost:5400/api/cart/add-to-cart/18
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiYWRtaW5Vc2VyIjpmYWxzZSwiaWF0IjoxNjk2MDg0MzI4fQ.y_6JKEF_jszAh7xSMDfaoqN60gJJzCbHGjasA8zthKk
 
 
 ### Remove Shoe From Cart
