@@ -52,11 +52,22 @@ export default function cartController() {
         }
     }
 
+    async function clearCart(req, res){
+        try{
+           await cartServiceInstance.clearCart(req.user.username)
+           res.status(201).json({ message: "Successfully cleared the cart" });
+        }catch(error){
+            console.log(error);
+            res.status(501)
+        }
+    }
+
     return {
         getCartItems,
         addToCart,
         removeFromCart,
-        updateCart
+        updateCart,
+        clearCart
         
     };
 }

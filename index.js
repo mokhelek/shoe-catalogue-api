@@ -5,7 +5,10 @@ import 'dotenv/config';
 
 import shoesRouter from "./routes/shoes.js";
 import cartRouter from "./routes/cart.js";
-import authRouter from "./routes/auth.js"
+import authRouter from "./routes/auth.js";
+import payRouter from "./routes/payment.js"
+
+
 import cors from "cors"
 
 let app = express();
@@ -66,6 +69,7 @@ app.get("/",(req, res) => {
 app.use("/api/shoes",shoesRouter);
 app.use("/api/cart",cartRouter);
 app.use("/api/auth",authRouter);
+app.use("/api/pay",payRouter);
 
 let PORT = process.env.PORT ;
 app.listen(PORT, function () {
