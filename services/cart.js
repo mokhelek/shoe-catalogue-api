@@ -14,7 +14,7 @@ export default function cartService(db) {
                         FROM shoes_stock
                         INNER JOIN shopping_cart ON shoes_stock.id = shopping_cart.shoe_id 
                         WHERE shopping_cart.username = $1
-                        ORDER BY shoes_stock.id ASC
+                        ORDER BY shopping_cart.created_at ASC
                         `;
         const cartItems = await db.manyOrNone(query, data);
         return cartItems;

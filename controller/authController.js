@@ -17,7 +17,6 @@ export default function authController() {
 
         try {
             await authServiceInstance.customerRegistration(data);
-            // todo: -> redirect to login page
             res.status(201).json({ message: "Successfully registered" });
         } catch (error) {
             console.log(error);
