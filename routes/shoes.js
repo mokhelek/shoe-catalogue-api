@@ -41,6 +41,8 @@ router.get("/brand/:brandName/size/:shoeSize/color/:shoeColor", shoesControllerI
 
 router.post("/", authenticateToken, shoesControllerInstance.addShoes);
 
+router.post("/search", shoesControllerInstance.getSearchedShoes );
+
 router.post("/sold/:id", shoesControllerInstance.updateStock);
 
 export default router;

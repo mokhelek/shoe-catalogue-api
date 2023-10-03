@@ -4,11 +4,18 @@ import db from "../model/db.js";
 let shoesServiceInstance = shoesService(db);
 
 export default function shoesController() {
-
-
     async function getAllShoes(req, res) {
-        let shoesList = await shoesServiceInstance.getAllShoes();
         try {
+            let shoesList = await shoesServiceInstance.getAllShoes();
+            res.status(200).json(shoesList);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function getSearchedShoes(req, res) {
+        try {
+            let shoesList = await shoesServiceInstance.getSearchedShoes(req.body.searchText);
             res.status(200).json(shoesList);
         } catch (error) {
             console.log(error);
@@ -25,9 +32,8 @@ export default function shoesController() {
     }
 
     async function getShoesByColor(req, res) {
-
         try {
-            let shoesListByColor = await shoesServiceInstance.getShoesByColor("#"+req.params.shoeColor);
+            let shoesListByColor = await shoesServiceInstance.getShoesByColor("#" + req.params.shoeColor);
             res.status(200).json(shoesListByColor);
         } catch (error) {
             console.log(error);
@@ -54,7 +60,7 @@ export default function shoesController() {
     }
 
     async function getShoesBySizeColor(req, res) {
-        const data = [req.params.shoeSize, "#"+req.params.shoeColor];
+        const data = [req.params.shoeSize, "#" + req.params.shoeColor];
         try {
             let shoesListBySizeColor = await shoesServiceInstance.getShoesBySizeColor(data);
             res.status(200).json(shoesListBySizeColor);
@@ -64,7 +70,7 @@ export default function shoesController() {
     }
 
     async function getShoesByBrandColor(req, res) {
-        const data = [req.params.brandName, "#"+req.params.shoeColor];
+        const data = [req.params.brandName, "#" + req.params.shoeColor];
         try {
             let shoesListByBrandColor = await shoesServiceInstance.getShoesByBrandColor(data);
             res.status(200).json(shoesListByBrandColor);
@@ -74,7 +80,7 @@ export default function shoesController() {
     }
 
     async function getShoesBySizeBrandColor(req, res) {
-        const data = [req.params.shoeSize, req.params.brandName, "#"+req.params.shoeColor];
+        const data = [req.params.shoeSize, req.params.brandName, "#" + req.params.shoeColor];
         try {
             let shoesListByBrandSizeColor = await shoesServiceInstance.getShoesBySizeBrandColor(data);
             res.status(200).json(shoesListByBrandSizeColor);
@@ -84,16 +90,7 @@ export default function shoesController() {
     }
 
     async function addShoes(req, res) {
-        const data = [
-            req.body.shoe_name, 
-            req.body.brand, 
-            req.body.size, 
-            req.body.price, 
-            req.body.image_url, 
-            req.body.color, 
-            req.body.stock_quantity,
-            req.body.description
-        ]
+        const data = [req.body.shoe_name, req.body.brand, req.body.size, req.body.price, req.body.image_url, req.body.color, req.body.stock_quantity, req.body.description];
 
         try {
             await shoesServiceInstance.addShoes(data);
@@ -116,6 +113,7 @@ export default function shoesController() {
 
     return {
         getAllShoes,
+        getSearchedShoes,
         getShoesByBrand,
         getShoesBySize,
         getShoesByColor,

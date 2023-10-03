@@ -5,7 +5,10 @@ export default function shoesService(db) {
         let shoesList = await db.any("SELECT * FROM shoes_stock ORDER BY id DESC");
         return shoesList;
     }
-
+    async function getSearchedShoes(searchTerm) {
+        let shoesList = await db.any(`SELECT * FROM shoes_stock WHERE shoe_name ILIKE $1 OR brand ILIKE $1`, [`%${searchTerm}%`]);
+        return shoesList;
+    }
     async function getShoesByBrand(brandName) {
         let shoesListByBrand = await db.any("SELECT * FROM shoes_stock WHERE brand = $1 ORDER BY id DESC", brandName);
         return shoesListByBrand;
@@ -60,6 +63,7 @@ export default function shoesService(db) {
 
     return {
         getAllShoes,
+        getSearchedShoes,
         getShoesByBrand,
         getShoesBySize,
         getShoesByColor,

@@ -57,3 +57,12 @@ content-type: application/json
 {
     "quantity": 2
 }
+
+### Search shoes
+
+POST http://localhost:5400/api/shoes/search
+content-type: application/json 
+
+{
+    "searchText": "gucci"
+}
