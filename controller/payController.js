@@ -6,8 +6,9 @@ let payServiceInstance = payService(db)
 export default function payController() {
 
     async function payment(req, res) {
+        console.log("-----------------", req.user.username)
         try {
-            await payServiceInstance.makePayment()
+            await payServiceInstance.makePayment(req.user.username)
             res.status(201).json({ message: "Successfully made payment" });
         } catch (error) {
             console.log(error);

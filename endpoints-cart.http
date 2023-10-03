@@ -4,9 +4,18 @@ GET http://localhost:5400/api/cart/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiYWRtaW5Vc2VyIjpmYWxzZSwiaWF0IjoxNjk2MDg0MzI4fQ.y_6JKEF_jszAh7xSMDfaoqN60gJJzCbHGjasA8zthKk
 
 
+### Make Payment
+POST http://localhost:5400/api/pay/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiYWRtaW5Vc2VyIjpmYWxzZSwiaWF0IjoxNjk2MDg0MzI4fQ.y_6JKEF_jszAh7xSMDfaoqN60gJJzCbHGjasA8zthKk
+
+{
+ "amount":0
+}
+
 ### Clear the cart
 GET http://localhost:5400/api/cart/clear-cart/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiYWRtaW5Vc2VyIjpmYWxzZSwiaWF0IjoxNjk2MDg0MzI4fQ.y_6JKEF_jszAh7xSMDfaoqN60gJJzCbHGjasA8zthKk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIzIiwiYWRtaW5Vc2VyIjpmYWxzZSwiaWF0IjoxNjk2MzM0MjYxfQ.8VfCvQCQ1uNuwKxIYfB6dDEg_Kfpyai6F9k4jIv-tX8
+
 
 
 
