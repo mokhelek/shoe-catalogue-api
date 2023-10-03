@@ -34,7 +34,7 @@ CREATE TABLE shopping_cart(
     username VARCHAR(50), 
     quantity INT,
     created_at TIMESTAMP DEFAULT NOW(),
-    FOREIGN KEY (shoe_id) REFERENCES shoes_stock(id),
+    FOREIGN KEY (shoe_id) REFERENCES shoes_stock(id)
 );
 
 

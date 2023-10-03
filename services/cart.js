@@ -10,6 +10,7 @@ export default function cartService(db) {
                         shoes_stock.price,
                         shoes_stock.image_url,
                         shoes_stock.color,
+                        shoes_stock.stock_quantity,
                         shopping_cart.quantity
                         FROM shoes_stock
                         INNER JOIN shopping_cart ON shoes_stock.id = shopping_cart.shoe_id 
