@@ -41,7 +41,7 @@ export default function authController() {
                 const userAccessToken =  jwt.sign(user, process.env.ACCESS_TOKEN_KEY);
                 res.json({userAccessToken, user})
             } else {
-                res.status(400).json({ message: "Invalid login credentials" });
+                res.json({ message: "Invalid login credentials" });
             }
         }else if(admin){
             const passwordMatch = await bcrypt.compare(password, admin.password);
@@ -54,10 +54,10 @@ export default function authController() {
                 const userAccessToken =  jwt.sign(user, process.env.ACCESS_TOKEN_KEY);
                 res.json({userAccessToken, user})
             } else {
-                res.status(400).json({ message: "Invalid login credentials" });
+                res.json({ message: "Invalid login credentials" });
             }
         }else{
-            res.status(404).json({ message: "User does not exist" });
+            res.json({ message: "User does not exist" });
         }
 
 
