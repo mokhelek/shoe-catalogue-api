@@ -1,3 +1,6 @@
 node_modules/
 .env
 placeholder
+endpoint-auth.http
+endpoint-cart.http
+endpoint-shoes.http
