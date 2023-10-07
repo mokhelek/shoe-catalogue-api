@@ -1,6 +1,4 @@
 export default function shoesService(db) {
-
-
     async function getAllShoes() {
         let shoesList = await db.any("SELECT * FROM shoes_stock ORDER BY id DESC");
         return shoesList;
@@ -26,7 +24,7 @@ export default function shoesService(db) {
 
     async function getShoesBySizeBrand(data) {
         let shoesListByBrandSize = await db.any("SELECT * FROM shoes_stock WHERE size = $1 AND brand = $2 ORDER BY id DESC", data);
-       return shoesListByBrandSize;
+        return shoesListByBrandSize;
     }
 
     async function getShoesBySizeColor(data) {
@@ -58,7 +56,6 @@ export default function shoesService(db) {
             SET quantity = shoes_stock.stock_stock_quantity - 1 WHERE id = $1
         `;
         await db.any(insertQuery, id);
-      
     }
 
     return {

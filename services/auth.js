@@ -1,8 +1,4 @@
-
 export default function authService(db) {
-
-
-
     async function customerRegistration(data) {
         await db.none("INSERT INTO customer(username, password, email) VALUES($1, $2, $3)", data);
     }
@@ -20,6 +16,6 @@ export default function authService(db) {
     return {
         customerRegistration,
         customerLogin,
-        adminLogin
+        adminLogin,
     };
 }

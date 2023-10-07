@@ -1,0 +1,36 @@
+
+-- Create the Order Table
+CREATE TABLE OrderTable (
+    OrderID SERIAL PRIMARY KEY,
+    UserID INT REFERENCES User(UserID),
+    OrderDate TIMESTAMP,
+    Status VARCHAR(50),
+    TotalAmount DECIMAL(10, 2)
+);
+
+-- Create the OrderDetails Table
+CREATE TABLE OrderDetails (
+    OrderDetailID SERIAL PRIMARY KEY,
+    OrderID INT REFERENCES OrderTable(OrderID),
+    ProductID INT REFERENCES Product(ProductID),
+    Quantity INT,
+    Subtotal DECIMAL(10, 2)
+);
+
+-- Create the Address Table
+CREATE TABLE Address (
+    AddressID SERIAL PRIMARY KEY,
+    UserID INT REFERENCES User(UserID),
+    StreetAddress VARCHAR(255),
+    City VARCHAR(100),
+    PostalCode VARCHAR(20),
+    Country VARCHAR(100)
+);
+
+-- Create the Payment Table
+CREATE TABLE Payment (
+    PaymentID SERIAL PRIMARY KEY,
+    UserID INT REFERENCES User(UserID),
+    CardNumber VARCHAR(4), -- Store the last 4 digits for reference
+    PaymentDate TIMESTAMP
+);

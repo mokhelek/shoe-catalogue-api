@@ -4,9 +4,7 @@ var router = express.Router();
 
 const authControllerInstance = authController();
 
-router.post("/register", authControllerInstance.customerRegistration );
-router.post("/login", authControllerInstance.customerLogin );
+router.post("/register", authControllerInstance.customerRegistration);
+router.post("/login", authControllerInstance.customerLogin);
 
-
-
-export default router ;
+export default router;

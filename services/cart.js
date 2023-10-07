@@ -1,6 +1,4 @@
 export default function cartService(db) {
-
-
     async function getCartItems(data) {
         const query = `SELECT 
                         shoes_stock.id,
@@ -22,11 +20,11 @@ export default function cartService(db) {
     }
 
     async function addToCart(data) {
-        await db.none("INSERT INTO shopping_cart(shoe_id, username, quantity) VALUES ($1, $2, $3)", data); 
+        await db.none("INSERT INTO shopping_cart(shoe_id, username, quantity) VALUES ($1, $2, $3)", data);
     }
 
     async function clearCart(user) {
-        await db.none(`DELETE FROM shopping_cart WHERE shopping_cart.username = ${user}`); 
+        await db.none(`DELETE FROM shopping_cart WHERE shopping_cart.username = ${user}`);
     }
 
     async function removeFromCart(data) {
@@ -34,19 +32,18 @@ export default function cartService(db) {
     }
 
     async function updateCart(data) {
-        if(data[0]>0 ){
+        if (data[0] > 0) {
             await db.any("UPDATE shopping_cart SET quantity = $1 WHERE username = $2 AND shoe_id = $3", data);
-        }else{
-            await db.none("DELETE FROM shopping_cart WHERE username = $1 AND shoe_id = $2", [data[1], data[2]] )
+        } else {
+            await db.none("DELETE FROM shopping_cart WHERE username = $1 AND shoe_id = $2", [data[1], data[2]]);
         }
     }
-
 
     return {
         getCartItems,
         addToCart,
         removeFromCart,
         updateCart,
-        clearCart
+        clearCart,
     };
 }

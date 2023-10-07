@@ -3,10 +3,7 @@ import payController from "../controller/payController.js";
 var router = express.Router();
 import jwt from "jsonwebtoken";
 
-
 const payControllerInstance = payController();
-
-
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers["authorization"];
@@ -26,10 +23,6 @@ function authenticateToken(req, res, next) {
     }
 }
 
+router.post("/", authenticateToken, payControllerInstance.payment);
 
-
-router.post("/", authenticateToken, payControllerInstance.payment );
-
-
-
-export default router ;
+export default router;
