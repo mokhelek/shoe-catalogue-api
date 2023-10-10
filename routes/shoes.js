@@ -1,27 +1,10 @@
 import express from "express";
 import shoesController from "../controller/shoesController.js";
 var router = express.Router();
-import jwt from "jsonwebtoken";
+import authenticateToken from "../middlewares/auth.js";
 
 let shoesControllerInstance = shoesController();
 
-function authenticateToken(req, res, next) {
-    const authHeader = req.headers["authorization"];
-    const token = authHeader && authHeader.split(" ")[1];
-
-    if (token == null) {
-        return res.status(401);
-    } else {
-        jwt.verify(token, process.env.ACCESS_TOKEN_KEY, (err, user) => {
-            if (err) {
-                return res.status(403);
-            } else {
-                req.user = user;
-                next();
-            }
-        });
-    }
-}
 
 router.get("/", shoesControllerInstance.getAllShoes);
 
