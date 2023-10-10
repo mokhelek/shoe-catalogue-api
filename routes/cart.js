@@ -1,28 +1,12 @@
 import express from "express";
 import cartController from "../controller/cartController.js";
-import jwt from "jsonwebtoken";
+import authenticateToken from "../middlewares/auth.js";
 
 var router = express.Router();
 
 let cartControllerInstance = cartController();
 
-function authenticateToken(req, res, next) {
-    const authHeader = req.headers["authorization"];
-    const token = authHeader && authHeader.split(" ")[1];
 
-    if (token == null) {
-        return res.status(401);
-    } else {
-        jwt.verify(token, process.env.ACCESS_TOKEN_KEY, (err, user) => {
-            if (err) {
-                return res.status(403);
-            } else {
-                req.user = user;
-                next();
-            }
-        });
-    }
-}
 
 router.get("/", authenticateToken, cartControllerInstance.getCartItems);
 router.get("/clear-cart", authenticateToken, cartControllerInstance.clearCart);
