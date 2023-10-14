@@ -62,19 +62,19 @@ describe("The shoe catalogue", function () {
     });
 
     it("Should filter shoes by brand", async function () {
-        let shoes = await shoesServiceInstance.getShoesByColor("Dr Martins");
+        let shoes = await shoesServiceInstance.getShoesByColor("brown");
         let expectedOutput = [
             {
-                brand: "Dr Martins",
-                color: "red",
-                description: "Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque",
-                id: 3,
-                image_url: "https://img.fruugo.com/product/9/44/178237449_0340_0340.jpg",
-                price: "4000",
-                shoe_name: "Dr Martins 1460",
-                size: "6",
-                stock_quantity: 25,
-            },
+                brand: 'GH BASS',
+                color: 'brown',
+                description: 'Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque',
+                id: 2,
+                image_url: 'https://www.johncraig.co.za/wp-content/uploads/BAS02CO-BASS-OCG-WEEJUNS-VENETIAN-LEATHER-BROWN-BA91005E-0CG-V1-600x600.jpg',
+                price: '3000',
+                shoe_name: 'BASS OCG WEEJUNS',
+                size: '6',
+                stock_quantity: 40
+              },
         ];
         assert.deepEqual(expectedOutput, shoes);
     });
