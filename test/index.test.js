@@ -29,19 +29,53 @@ describe("The shoe catalogue", function () {
         let shoes = await shoesServiceInstance.getSearchedShoes("Leather");
         let expectedOutput = [
             {
-                brand: 'Christian Louboutin',
-                color: 'black',
-                description: 'Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque',
+                brand: "Christian Louboutin",
+                color: "black",
+                description: "Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque",
                 id: 4,
-                image_url: 'https://image.harrods.com/christian-louboutin-no-penny-patent-leather-loafers_19241760_43422425_300.jpg',
-                price: '7000',
-                shoe_name: 'CL Patent Leather ',
-                size: '7',
-                stock_quantity: 10
-              }
-            
-        ]
+                image_url: "https://image.harrods.com/christian-louboutin-no-penny-patent-leather-loafers_19241760_43422425_300.jpg",
+                price: "7000",
+                shoe_name: "CL Patent Leather ",
+                size: "7",
+                stock_quantity: 10,
+            },
+        ];
         assert.deepEqual(expectedOutput, shoes);
     });
 
+    it("Should filter shoes by brand", async function () {
+        let shoes = await shoesServiceInstance.getShoesByBrand("Dr Martins");
+        let expectedOutput = [
+            {
+                brand: "Dr Martins",
+                color: "red",
+                description: "Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque",
+                id: 3,
+                image_url: "https://img.fruugo.com/product/9/44/178237449_0340_0340.jpg",
+                price: "4000",
+                shoe_name: "Dr Martins 1460",
+                size: "6",
+                stock_quantity: 25,
+            },
+        ];
+        assert.deepEqual(expectedOutput, shoes);
+    });
+
+    it("Should filter shoes by brand", async function () {
+        let shoes = await shoesServiceInstance.getShoesByColor("Dr Martins");
+        let expectedOutput = [
+            {
+                brand: "Dr Martins",
+                color: "red",
+                description: "Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque",
+                id: 3,
+                image_url: "https://img.fruugo.com/product/9/44/178237449_0340_0340.jpg",
+                price: "4000",
+                shoe_name: "Dr Martins 1460",
+                size: "6",
+                stock_quantity: 25,
+            },
+        ];
+        assert.deepEqual(expectedOutput, shoes);
+    });
 });
