@@ -114,4 +114,44 @@ describe("The shoe catalogue", function () {
         ];
         assert.deepEqual(expectedOutput, shoes);
     });
+
+    it("Should filter shoes by color and size", async function () {
+        let shoes = await shoesServiceInstance.getShoesBySizeColor(["6", "red"]);
+        let expectedOutput = [
+            {
+                brand: "Dr Martins",
+                color: "red",
+                description: "Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque",
+                id: 3,
+                image_url: "https://img.fruugo.com/product/9/44/178237449_0340_0340.jpg",
+                price: "4000",
+                shoe_name: "Dr Martins 1460",
+                size: "6",
+                stock_quantity: 25,
+            },
+        ];
+        assert.deepEqual(expectedOutput, shoes);
+    });
+
+    it("Should filter shoes by color and brand", async function () {
+        let shoes = await shoesServiceInstance.getShoesByBrandColor(["Dr Martins", "red"]);
+        let expectedOutput = [
+            {
+                brand: "Dr Martins",
+                color: "red",
+                description: "Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque",
+                id: 3,
+                image_url: "https://img.fruugo.com/product/9/44/178237449_0340_0340.jpg",
+                price: "4000",
+                shoe_name: "Dr Martins 1460",
+                size: "6",
+                stock_quantity: 25,
+            },
+        ];
+        assert.deepEqual(expectedOutput, shoes);
+    });
+
+    
+    
+
 });
