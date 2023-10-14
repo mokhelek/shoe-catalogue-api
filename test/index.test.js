@@ -61,7 +61,7 @@ describe("The shoe catalogue", function () {
         assert.deepEqual(expectedOutput, shoes);
     });
 
-    it("Should filter shoes by brand", async function () {
+    it("Should filter shoes by color", async function () {
         let shoes = await shoesServiceInstance.getShoesByColor("brown");
         let expectedOutput = [
             {
@@ -78,4 +78,24 @@ describe("The shoe catalogue", function () {
         ];
         assert.deepEqual(expectedOutput, shoes);
     });
+
+    it("Should filter shoes by size", async function () {
+        let shoes = await shoesServiceInstance.getShoesBySize("8");
+        let expectedOutput = [
+            {
+                brand: 'Gucci',
+                color: 'green',
+                description: 'Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque',
+                id: 1,
+                image_url: 'https://catalog-resize-images.thedoublef.com/9b85a5ca98152c0f1e4a1e2538b6ca2e/900/900/3079291M0C0_M_GUC-3154.b.jpg',
+                price: '11000',
+                shoe_name: 'Gucci Loafer',
+                size: '8',
+                stock_quantity: 5
+              }
+            
+        ];
+        assert.deepEqual(expectedOutput, shoes);
+    });
+
 });
