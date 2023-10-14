@@ -151,6 +151,27 @@ describe("The shoe catalogue", function () {
         assert.deepEqual(expectedOutput, shoes);
     });
 
+
+    it("Should filter shoes by size, color and brand", async function () {
+        let shoes = await shoesServiceInstance.getShoesBySizeBrandColor(["7","Gucci", "black"]);
+        let expectedOutput = [
+            {
+                brand: 'Gucci',
+                color: 'black',
+                description: 'Lorem ipsum dolor sit amet. Et fugiat fugit sit officia totam in cumque',
+                id: 5,
+                image_url: 'https://image.harrods.com/gucci-leather-web-stripe-loafers_16165319_36472932_300.jpg',
+                price: '8000',
+                shoe_name: 'Gucci Stripped Loafers',
+                size: '7',
+                stock_quantity: 15
+              }
+            
+        ];
+        assert.deepEqual(expectedOutput, shoes);
+    });
+
+    
     
     
 
